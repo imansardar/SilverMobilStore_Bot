@@ -1,11 +1,12 @@
-import os
 import telebot
-from telebot import types
+import os
 
-TOKEN = os.getenv("8641131217:AAGUdZ2I-Xhm-UxZXJvXyeWm2B_PY__cpuc")
-
+TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
 
-if __name__ == "__main__":
-    print("✅ ربات در حال اجراست...")
-    bot.infinity_polling()
+@bot.message_handler(commands=["start"])
+def start(message):
+    # منوی اصلی خودت اینجا
+    pass
+
+bot.infinity_polling()
