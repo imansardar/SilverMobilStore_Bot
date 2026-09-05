@@ -740,7 +740,8 @@ def check_membership(call):
 # 🚀 شروع
 # ============================================================
 @bot.message_handler(commands=["start"])
-def start(message):
+def is_member(user_id):
+    return True  # همیشه عضو فرض کن
     user_id = message.chat.id
     add_new_user(user_id, first_name=message.from_user.first_name, last_name=message.from_user.last_name or "")
     if is_member(user_id):
