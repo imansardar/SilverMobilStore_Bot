@@ -1,7 +1,6 @@
 # ============================================================
 # 📦 ایمپورت‌ها
 # ============================================================
-from builtins import int
 import os
 import re
 import time
@@ -9,7 +8,18 @@ import json
 import logging
 import sqlite3
 from datetime import datetime
-from dotenv import load_dotenv
+
+# ایمپورت دات‌env با fallback
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    import subprocess
+    import sys
+    print("📦 نصب python-dotenv به‌صورت خودکار...")
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-dotenv'])
+    from dotenv import load_dotenv
+
+load_dotenv()   # ✅ حتماً این خط رو اضافه کن
 
 import telebot
 from telebot import types
