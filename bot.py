@@ -1,12 +1,26 @@
-import telebot
-
-TOKEN = "8641131217:AAGUdZ2I-Xhm-UxZXJvXyeWm2B_PY__cpuc"  # این یه توکن نمونه‌ست، حتماً عوضش کن!!!
-
-bot = telebot.TeleBot(TOKEN)
-
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=["start"])
 def start(message):
-    bot.reply_to(message, "🚀 سلام!")
+    user_id = message.chat.id
 
-print("✅ ربات در حال اجراست...")
-bot.polling()
+    add_new_user(
+        user_id,
+        first_name=message.from_user.first_name,
+        last_name=message.from_user.last_name or ""
+    )
+
+    if is_member(user_id):
+        balance = get_user_balance(user_id)
+
+        bot.send_message(
+            user_id,
+            f"👋 سلام {message.from_user.first_name} عزیز!\n"
+            f"به ربات فروشگاه SARDAR VIP خوش آمدید.\n"
+            f"💰 موجودی شما: {balance:,} تومان",
+            reply_markup=main_menu(user_id)
+        )
+    else:
+        bot.send_message(
+            user_id,
+            "🔒 لطفاً ابتدا در کانال عضو شوید تا بتوانید از خدمات استفاده کنید.",
+            reply_markup=join_channel_button()
+        )
