@@ -550,16 +550,6 @@ def get_inventory_stats():
     conn.close()
     return apple_count, email_count, user_count
 
-def check_inventory_and_notify():
-    try:
-        apple_count, email_count, _ = get_inventory_stats()
-        if apple_count < 5:
-            bot.send_message(ADMIN_ID, f"⚠️ هشدار: تعداد اپل‌آیدی‌های موجود کمتر از ۵ است (تعداد: {apple_count})")
-        if email_count < 5:
-            bot.send_message(ADMIN_ID, f"⚠️ هشدار: تعداد ایمیل‌های موجود کمتر از ۵ است (تعداد: {email_count})")
-    except Exception as e:
-        logger.error(f"خطا در ارسال نوتیفیکیشن به ادمین: {e}")
-
 # ============================================================
 # 💾 توابع مدیریت اپل‌آیدی و ایمیل
 # ============================================================
@@ -688,14 +678,7 @@ def is_member(user_id):
         member = bot.get_chat_member(CHANNEL_ID, user_id)
         return member.status in ["member", "administrator", "creator"]
     except:
-        return False
-
-def join_channel_button():
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    markup.add(types.InlineKeyboardButton("🔗 عضویت در کانال", url="https://t.me/StoreSardaarApple"))
-    markup.add(types.InlineKeyboardButton("✅ عضویت دارم", callback_data="check_membership"))
-    return markup
-
+        return True  # اگه نتونست چک کنه، بگو عضو هست تا منو رو نشون بده
 # ============================================================
 # 🏠 منوی اصلی
 # ============================================================
