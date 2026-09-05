@@ -42,7 +42,8 @@ CHANNEL_ID = os.getenv("CHANNEL_ID", "@StoreSardaarApple")
 BONUS_PERCENT = int(os.getenv("BONUS_PERCENT", 5))
 BANK_CARD = os.getenv("BANK_CARD", "5022291331447233")
 BANK_OWNER = os.getenv("BANK_OWNER", "ایمان سردار راد")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8904951204:AAGinM0KaExZLysgyOZfcoYRg7mtm1tkhTc").strip()
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8641131217:AAGUdZ2I-Xhm-UxZXJvXyeWm2B_PY__cpuc
+").strip()
 if not BOT_TOKEN:
     raise RuntimeError("BOT_TOKEN در Environment Variables تنظیم نشده است.")
 
