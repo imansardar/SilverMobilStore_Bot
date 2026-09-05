@@ -1,19 +1,3 @@
-1 selected
-
-Skip to content
-Using Gmail with screen readers
-label:code-bot-telegram 
-1 of 1
-(no subject)
-code bot telegram
-
-iman sardar <iman.sardar201818@gmail.com>
-Attachments
-Sto me
-
-
-
- 2 Attachments
 # ============================================================
 # 📦 ایمپورت‌ها
 # ============================================================
@@ -40,12 +24,10 @@ CHANNEL_ID = os.getenv("CHANNEL_ID", "@StoreSardaarApple")
 BONUS_PERCENT = int(os.getenv("BONUS_PERCENT", 5))
 BANK_CARD = os.getenv("BANK_CARD", "5022291331447233")
 BANK_OWNER = os.getenv("BANK_OWNER", "ایمان سردار راد")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8641131217:AAGUdZ2I-Xhm-UxZXJvXyeWm2B_PY__cpuc
-").strip()
+BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
 if not BOT_TOKEN:
     raise RuntimeError("BOT_TOKEN در Environment Variables تنظیم نشده است.")
 
-bot = telebot.TeleBot(BOT_TOKEN)
 bot.delete_webhook()
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -2544,11 +2526,7 @@ if __name__ == "__main__":
         logger.warning(f"⚠️ خطا در حذف وب‌هوک: {e}")
     logger.info("✅ شروع به دریافت پیام‌ها...")
     try:
-        
+        bot.polling(non_stop=True, interval=0, timeout=20)
     except Exception as e:
         logger.error(f"❌ خطای اصلی: {e}")
         time.sleep(5)
-SilverMobileStore_Bot.py
-Displaying SilverMobileStore_Bot.py.
-
-bot.infinity_polling()
