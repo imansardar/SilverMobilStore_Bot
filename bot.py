@@ -9,8 +9,7 @@ code bot telegram
 
 iman sardar <iman.sardar201818@gmail.com>
 Attachments
-Sep 3, 2026, 8:32 PM (2 days ago)
-to me
+Sto me
 
 
 
