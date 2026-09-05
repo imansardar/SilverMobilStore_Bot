@@ -683,7 +683,7 @@ def add_email(email, password):
 # ============================================================
 # 🔒 توابع بررسی عضویت در کانال
 # ============================================================
-def is_member(user_id):
+return True
     try:
         member = bot.get_chat_member(CHANNEL_ID, user_id)
         return member.status in ["member", "administrator", "creator"]
