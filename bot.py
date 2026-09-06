@@ -18,7 +18,6 @@ except ModuleNotFoundError:
     import subprocess
     import sys
     print("📦 نصب python-dotenv به‌صورت خودکار...")
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'python-dotenv'])
     from dotenv import load_dotenv
 
 load_dotenv()   # ✅ حتماً این خط رو اضافه کن
