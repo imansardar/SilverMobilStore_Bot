@@ -50,9 +50,7 @@ logger = logging.getLogger(__name__)
 # ============================================================
 DB_PATH = "sardar_app_store.db"
 
-def get_db():
-    conn = psycopg2.connect(DATABASE_URL) 
-    return conn
+DATABASE_URL = os.getenv("DATABASE_URL")
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS apple_ids (
