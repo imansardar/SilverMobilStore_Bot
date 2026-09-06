@@ -6,7 +6,9 @@ import re
 import time
 import json
 import logging
-import sqlite3
+import psycopg2
+import psycopg2.extras
+import os
 from datetime import datetime
 
 # ایمپورت دات‌env با fallback
@@ -49,9 +51,8 @@ logger = logging.getLogger(__name__)
 DB_PATH = "sardar_app_store.db"
 
 def get_db():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    conn = psycopg2.connect(DATABASE_URL) 
+    return conn
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS apple_ids (
